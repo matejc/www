@@ -1,0 +1,5 @@
+# Common linux packages as available on Debian-based systems
+
+# needed by optimize_images plugin
+libjpeg-progs
+optipng

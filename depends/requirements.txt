@@ -1,0 +1,33 @@
+# Python requirements (installed with pip)
+
+pelican
+Markdown
+typogrify
+
+# for various plugins
+BeautifulSoup4
+
+# for w3c_validate plugin
+py_w3c
+
+# plugin that supports Alias redirect
+git+git://github.com/Nitron/pelican-alias.git
+
+# minify all generated HTML
+git+git://github.com/rdegges/pelican-minify.git
+
+# compile, minify, and version-identify all other assets (CSS, JS)
+webassets
+
+#
+# Markdown plugins
+#
+
+# ~~deleted~~ and ++inserted++ text
+git+git://github.com/aleray/mdx_del_ins.git
+
+# auto-link URLs
+git+git://github.com/r0wb0t/markdown-urlize.git
+
+# ^superscripted^ text
+git+git://github.com/jambonrose/markdown_superscript_extension.git
