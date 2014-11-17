@@ -1,0 +1,8 @@
+*.py[cod]
+*~
+*.pid
+*.bak
+
+cache/
+output/
+pelican-themes/
