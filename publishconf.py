@@ -5,20 +5,21 @@ from __future__ import unicode_literals
 # This file is only used if you use `make publish` or
 # explicitly specify it as your config file.
 
-import os
-import sys
-sys.path.append(os.curdir)
+import os; os.sys.path.insert(1, os.curdir)
 from pelicanconf import *
 
 SITEURL = 'http://www.kiberpipa.org'
 RELATIVE_URLS = False
 
-FEED_ALL_ATOM = 'feeds/all.atom.xml'
-CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
-
 DELETE_OUTPUT_DIRECTORY = True
 
-# Following items are often useful when publishing
+GOOGLE_ANALYTICS = '' # TODO
+DISQUS_SITENAME = 'kiberpipa'  # TODO
 
-#DISQUS_SITENAME = ""
-#GOOGLE_ANALYTICS = ""
+PLUGINS.extend([
+    'minify',         # strips HTML of excessive whitespace
+    'warnings_fatal',   # ours; makes warnings fatal
+])
+
+WARNINGS_FATAL = True
+
