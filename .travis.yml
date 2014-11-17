@@ -1,0 +1,36 @@
+language: python
+python:
+  - 2.7
+  - pypy
+branches:
+  only: master
+cache:
+  directories: cache
+install:
+  # Init the submodules of submodules
+  - git submodule update --init --recursive
+  - sudo apt-get -qq install mailutils exim4
+  # Install project dependencies
+  - make depends
+script:
+  - echo "Travis says Hi" | mail "$EMAIL"
+  # Run our pre-build checks
+  - make test
+  # Build production site
+  - make publish
+  # OK, prepare for after_success command
+  - pip install ghp-import
+after_success:
+  # Push result to gh-pages branch
+  - if [ "$TRAVIS_SECURE_ENV_VARS" = true ]; then make github; fi
+#~ notifications:
+  #~ irc:
+    #~ channels: "chat.freenode.net#kiberpipa"
+    #~ template:
+      #~ - "%{repository_slug}#%{commit} %{author}: %{message} "
+      #~ - "Change view: %{compare_url} | Build details: %{build_url}"
+    #~ use_notice: true
+    #~ skip_join: true
+  #~ email:
+    #~ recipients:
+      #~ - github@kiberpipa.org
