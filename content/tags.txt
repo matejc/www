@@ -1,0 +1,32 @@
+
+#
+# Tip dogodka
+#
+
+delavnica
+druženje
+okrogla miza
+predavanje
+sestanek
+
+#
+# Redne programske značke
+#
+
+bitcoin
+coderdojo
+igrolog
+filmšteka
+fsfe
+kiberpipa
+meet-up
+pot
+
+#
+# Ostale značke
+#
+
+igre
+oblikovanje
+programiranje
+za otroke

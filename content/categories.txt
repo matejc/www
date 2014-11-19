@@ -1,0 +1,21 @@
+
+#
+# Redni program
+#
+
+news
+CoderDojo
+Filmšteka
+FSFE
+Kiberpipa
+POT
+Reciklarna
+Servis
+
+#
+# Izredni program
+#
+
+Igrolog
+Bitcoin
+Zunanji
