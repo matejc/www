@@ -45,7 +45,7 @@ and the following **headers are also used**:
 - `Image`, the representative image of the event,
 - `Location`, the event venue, if not the ordinary,
 - `Organizer`, the event co-host, if any,
-- `YouTube`, a list of YT ids,
+- `Video`, a list of YouTube/... video/playlist URLs,
 
 all other headers are optional, and skipped. :-)
 
