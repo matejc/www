@@ -7,6 +7,7 @@ INPUTDIR=$(BASEDIR)/content
 OUTPUTDIR=$(BASEDIR)/output
 CONFFILE=$(BASEDIR)/pelicanconf.py
 PUBLISHCONF=$(BASEDIR)/publishconf.py
+VALIDATECONF=$(BASEDIR)/validateconf.py
 
 FTP_HOST=localhost
 FTP_USER=anonymous
@@ -41,6 +42,7 @@ help:
 	@echo '   make html                        (re)generate the web site          '
 	@echo '   make clean                       remove the generated files         '
 	@echo '   make regenerate                  regenerate files upon modification '
+	@echo '   make validate                    W3C-validates resulting HTML pages '
 	@echo '   make publish                     generate using production settings '
 	@echo '   make serve [PORT=8000]           serve site at http://localhost:8000'
 	@echo '   make devserver [PORT=8000]       start/restart develop_server.sh    '
@@ -61,6 +63,9 @@ test:
 
 depends:
 	bash $(BASEDIR)/bin/install_depends.sh
+
+validate:
+	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(VALIDATECONF) -v $(PELICANOPTS)
 
 html:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
