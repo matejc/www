@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BASEDIR="$(dirname $(readlink -f $0))"
+BASEDIR="$(dirname $(dirname $(readlink -f $0)))"
 CONTENT="$BASEDIR/content"
 
 run_tests()
@@ -28,7 +28,7 @@ test_md_line_length()
 {
     MAX_LINE_LENGTH=120
     max_md_line_length=$(wc --max-line-length $(find $CONTENT -name "*.md") |
-                         sort --reverse --numeric-sort | 
+                         sort --reverse --numeric-sort |
                          awk '{print $1; exit}')
     [ $max_md_line_length -lt $MAX_LINE_LENGTH ] || {
         error "Max line length in *.md files is $MAX_LINE_LENGTH characters"
@@ -46,30 +46,10 @@ test_no_spaces_in_filenames()
     }
 }
 
-
-test_tags_are_valid()
-{
-    # TODO: easier to implement as pelican plugin
-    warning_tbd "$FUNCNAME()"
-}
-
-test_categories_are_valid()
-{
-    warning_tbd "$FUNCNAME()"
-}
-
 test_no_rst_files()
 {
     warning_tbd "$FUNCNAME()"
 }
-
-test_all_required_headers_present()
-{
-    warning_tbd "$FUNCNAME()"
-}
-
-
-
 
 
 

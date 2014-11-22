@@ -57,10 +57,10 @@ help:
 	@echo '                                                                       '
 
 test:
-	bash $(BASEDIR)/check_content.sh
+	bash $(BASEDIR)/bin/check_content.sh
 
 depends:
-	bash $(BASEDIR)/install_depends.sh
+	bash $(BASEDIR)/bin/install_depends.sh
 
 html:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
@@ -80,9 +80,9 @@ endif
 
 devserver:
 ifdef PORT
-	$(BASEDIR)/develop_server.sh restart $(PORT)
+	$(BASEDIR)/bin/develop_server.sh restart $(PORT)
 else
-	$(BASEDIR)/develop_server.sh restart
+	$(BASEDIR)/bin/develop_server.sh restart
 endif
 
 stopserver:
