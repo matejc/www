@@ -167,7 +167,8 @@ THEME_STATIC_DIR = 'theme'  # relied on by webassets
 ## Plugins & extensions
 ## ====================================================================
 
-TYPOGRIFY = True
+TYPOGRIFY = False  # Typogrify runs as our custom plugin instead
+TYPOGRIFY_IGNORE_TAGS = 'pre code kbd script'.split()
 from plugins.jinja2_filters import JINJA_FILTERS
 JINJA_EXTENSIONS = [
     'jinja2.ext.i18n',
@@ -202,7 +203,7 @@ PLUGINS = [
     'bootstrapify',  # auto-bootstapifies markdown tables and images
     'feed_summary',  # use summary in RSS feeds
     'optimize_images',  # needs libjpeg-prog and optipng
-    #'jinja2content',  # support for jinja2 include statement in articles
+    'jinja2content',  # support for jinja2 include statement in articles
     'pelican-page-hierarchy', # support for breadcrumbs and nested pages
     'pelican-page-order',     # each page gets a page_order attribute useful for sorting
     'sitemap',        # generates sitemap.xml
@@ -219,6 +220,7 @@ PLUGINS = [
     'share_post',     # article.share_post dict of URLs
     'related_posts',  # adds article.related_posts list of articles that share a common tag
     'timedelta_duration',  # ours; makes duration a timedelta and adds end_date property
+    'our_typogrify',  # adds some styling spans
 # also consider
 # * https://github.com/getpelican/pelican-plugins/tree/master/custom_article_urls
 # * https://github.com/getpelican/pelican-plugins/tree/master/disqus_static
