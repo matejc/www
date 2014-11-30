@@ -186,6 +186,8 @@ MD_EXTENSIONS = [  # https://pythonhosted.org/Markdown/extensions/
     'del_ins',
     'urlize:UrlizeExtension',
     'superscript',
+    'plugins.md_meta_yaml.meta_yaml',
+    'plugins.markdown_yaml_date_strings',
 ]
 
 PLUGIN_PATHS = [

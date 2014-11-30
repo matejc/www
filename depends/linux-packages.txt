@@ -3,3 +3,6 @@
 # needed by optimize_images plugin
 libjpeg-progs
 optipng
+
+# needed for md_meta_yaml (besides PyYAML includes libyaml)
+python-yaml
