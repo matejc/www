@@ -1,5 +1,6 @@
 prose:
-  rooturl: 'content'
+  rooturl: "content"
+  media: "content/images/"
   metadata:
     content:
       - name: "title"
@@ -9,9 +10,10 @@ prose:
       - name: "tags"
         field:
           element: "multiselect"
-          label: "Add Tags"
+          label: "Tags"
+          help: "Some relevant tags"
           alterable: true
-          placeholder: "Choose Tags"
+          placeholder: "Select ..."
           options:
             # Tip dogodka
             - name: delavnica
@@ -55,9 +57,10 @@ prose:
       - name: "category"
         field:
           element: "select"
-          label: "Add Tags"
+          label: "Category"
+          help: "Note, the category should be inferred from the file directory, DO NOT set it here!"
           alterable: true
-          placeholder: "Choose Category"
+          placeholder: "Select one, or NONE. DON'T set anything here!"
           options:
             # Redni program
             - name: CoderDojo
@@ -85,37 +88,44 @@ prose:
       - name: "date"
         field:
           element: "text"
-          label: "Choose Datetime"
-          help: "Event date and time (2013-09-13 14:00)"
+          label: "Date & time"
+          help: "Date and time of the event in ISO format (e.g. '2013-09-13 14:00')"
       - name: "dates"
         field:
           element: "textarea"
-          label: "Choose Datetimes"
-          help: "List of event dates (- 2014-10-27 16:20  # visitors: 190)"
+          label: "Recurring Datetimes"
+          help: "List of dates if recurring event (e.g. '- 2014-10-27 16:20  # visitors: 19')"
       - name: "duration"
         field:
           element: "text"
-          label: "Choose duration"
-          help: "Event duration (04:00)"
+          label: "Event duration"
+          help: "Duration of the event in HH:MM (e.g. 04:00)"
       - name: "location"
         field:
           element: "select"
-          label: "Select Location"
-          placeholder: "Location"
+          label: "Event Location"
+          help: "Only set location if NOT the default (Kiberpipa)."
+          placeholder: "Select one ..."
           options:
             - name: "Kiberpipa"
               value: "Kiberpipa"
-            - name: "Kož"
+            - name: "KOŽ"
               value: "Mediateka KOŽ"
             - name: "Učilnica"
-              value: "Računalniška učilnica KOŽ"
+              value: "Računalniška učilnica @ KOŽ"
       - name: "video"
         field:
           element: "text"
-          label: "Choose Video"
-          help: "Youtube video or playlist url"
+          label: "Video stream URL"
+          help: "URL to a YouTube video or playlist"
       - name: "gallery"
         field:
           element: "text"
-          label: "Choose Gallery"
-          help: "Facebook image gallery url"
+          label: "Photo gallery URL"
+          help: "URL to a Facebook photo album"
+      - name: "published"
+        field:
+          element: "checkbox"
+          label: "Publish"
+          help: "Publish the content, or make it hidden"
+          value: true
