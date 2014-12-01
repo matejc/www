@@ -1,16 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
+from datetime import datetime
+import pytz
 import os; os.sys.path.insert(1, os.curdir)
 
 # Useful in development, but set to False when publishing!
 RELATIVE_URLS = True
 
 AUTHOR = 'Kiberpipa'
+EMAIL = 'info@kiberpipa.org'
 SITENAME = 'Kiberpipa'
 SITEURL = 'http://www.kiberpipa.org'
 SITESUBTITLE = 'All our code are belong to you.'
 TIMEZONE = 'Europe/Ljubljana'
+NOW = pytz.timezone(TIMEZONE).localize(datetime.now())
 DEFAULT_LANG = 'sl'
 LOCALE = ('sl_SI', 'en_US', 'en')
 DEFAULT_DATE_FORMAT = '%a, %d %b %Y -- %H:%M'
@@ -134,7 +138,7 @@ ARCHIVES_URL = 'archives/'
 ARCHIVES_SAVE_AS = 'archives/index.html'
 
 TEMPLATE_PAGES = {
-    #'extra/calendar.ics.jinja2': 'calendar.ics'
+    'extra/calendar.ics.jinja2': 'calendar.ics'
 }
 
 ## Atom/RSS Feeds

@@ -7,7 +7,7 @@ We need:
 - [ ] content (events, news, pages)
 - [ ] theme with [PureCSS](http://purecss.io/)?
 - [ ] stress testing
-- [ ] `/calendar.ics`
+- [x] `/calendar.ics`
 - [ ] `/events.json` for front page events
 - [ ] `/newsletter.html` should be somewhat hard to do
 - [ ] `/notification.json` for random important ongoing campaign

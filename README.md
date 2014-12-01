@@ -44,7 +44,11 @@ and the following **headers are also used**:
 - `Duration`, in `HH:MM` format,
 - `Image`, the representative image of the event,
 - `Location`, the event venue, if not the ordinary,
-- `Organizer`, the event co-host, if any,
+- `Organizer`, the event co-host, if any:
+
+  ```
+  Organizer: Common Name <email@example.com>
+  ```
 - `Video`, a list of YouTube/... video/playlist URLs,
 
 all other headers are optional, and skipped. :-)

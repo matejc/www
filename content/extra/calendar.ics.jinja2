@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Kiberpipa//NONSGML Dogodki//EN
+{% for event in articles %}{% if event.status != 'draft' and event.category != 'News' and event.date > NOW %}
+BEGIN:VEVENT
+UID:{{ event.url | replace('/', '-') }}@kiberpipa.org
+DTSTART;TZID={{ TIMEZONE }}:{{ event.date | dt_format('%Y%m%dT%H%M%S') }}
+{%if event.end_date %}DTEND;TZID={{ TIMEZONE }}:{{ event.end_date | dt_format('%Y%m%dT%H%M%S') }}{% endif %}
+DTSTAMP:{{ NOW | to_utc | dt_format('%Y%m%dT%H%M%S') }}
+SUMMARY:{{ event.title | html2text }}
+DESCRIPTION:{{ event.summary | html2text }}
+CATEGORIES:{{ event.tags | join(',') }}
+{% if event.location %}LOCATION:{{ event.location }}{% endif %}
+ORGANIZER;CN={{ event.organizer|replace('<', '')|replace('>', '') or event.author }}:MAILTO:{{ EMAIL }}
+URL:{{ SITEURL }}/{{ event.url }}
+END:VEVENT
+{% endif %}{% endfor %}
+END:VCALENDAR
