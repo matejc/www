@@ -1,0 +1,14 @@
+<footer class="footer">
+    <p class="tagline">{{ TAGLINE }}</p>
+    <p class="social">
+    {% for title, link in SOCIAL %}
+        <a href="{{ link }}">
+            <span class="fa fa-{{ title|lower }} fa-3x"></span>
+        </a>
+    {% endfor %}
+    </p>
+    <p>&copy; {{ AUTHOR }} &ndash;
+        Built with <a href="https://github.com/PurePelicanTheme/pure-single">Pure Theme</a>
+        for <a href="http://blog.getpelican.com/">Pelican</a>
+    </p>
+</footer>

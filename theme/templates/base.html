@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% block meta_description %}{{ SITENAME }}, {{ TAGLINE }}{% endblock meta_description %}">
+
+    {% if FEED_ALL_ATOM %}
+        <link rel="alternate"  href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" title="{{ SITENAME }} Full Atom Feed"/>
+    {% endif %}
+    {% if FEED_ALL_RSS %}
+        <link rel="alternate" href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" title="{{ SITENAME }} Full RSS Feed"/>
+    {% endif %}
+    {% if FEED_ATOM %}
+        <link rel="alternate" href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" title="{{ SITENAME }} Atom Feed"/>
+    {% endif %}
+    {% if FEED_RSS %}
+        <link rel="alternate" href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" title="{{ SITENAME }} RSS Feed"/>
+    {% endif %}
+
+    {% block head %}
+        <title>{% block title %}{{ SITENAME }} // {{ TAGLINE }}{% endblock title %}</title>
+    {% endblock head %}
+
+    {% if FAVICON_URL %}
+    <link href="{{ FAVICON_URL }}" rel="icon">
+    {% endif %}
+
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pure.css">
+    {% block head_css %}{% endblock %}
+
+    <!--<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>-->
+    {% block head_js %}{% endblock %}
+</head>
+
+<body>
+    <div id="nav-container">
+        <span class="left"><a href="{{ SITEURL }}"><img src="{{ SITEURL }}/theme/img/kiberpipa-light-blue.png" /></a></span>
+
+        <nav class="right">
+            <ul>
+                {% for p in pages|sort(attribute='order') %}
+                    {% if p.parent == None %}
+                    <li class="{% if p==page %}active{% endif %}"><a href="{{ SITEURL }}/{{ p.slug }}">{{ p.title }}</a>
+                        <ul>
+                        {% for c in p.children %}
+                            <li class="{% if c==page %}active{% endif %}"><a href="{{ SITEURL }}/{{ c.slug }}">{{ c.title }}</a></li>
+                        {% endfor %}
+                        </ul>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
+    <div id="layout">
+        {% block content %}
+        {% endblock %}
+    </div>
+    {% include 'footer.html' %}
+    <span id="go-top" class="fa fa-arrow-up"></span>
+    <script>
+        (function() {
+            var top = document.querySelector('#go-top');
+            var body = document.querySelector('body');
+
+            // Show or hide the sticky footer button
+            window.addEventListener('scroll', function() {
+                if (body.scrollTop > 200) {
+                    top.setAttribute('style', 'display: block;');
+                } else {
+                    top.setAttribute('style', 'display: none;');
+                }
+            });
+
+            // scroll to top
+            top.addEventListener('click', function(event) {
+                event.preventDefault();
+                window.scrollTo(0, 0);
+            });
+        })();
+    </script>
+    {% include 'analytics.html' %}
+</body>
+</html>
