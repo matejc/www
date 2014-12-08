@@ -1,6 +1,6 @@
 Title: O Kiberpipi
 Slug: about
-Order: 3
+page_order: 3
 
 Kiberpipa na kratko ...
 

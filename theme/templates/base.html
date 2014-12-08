@@ -48,11 +48,11 @@
 
         <nav class="right">
             <ul>
-                {% for p in pages|sort(attribute='order') %}
+                {% for p in pages|sort(attribute='page_order') %}
                     {% if p.parent == None %}
                     <li class="{% if p==page %}active{% endif %}"><a href="{{ SITEURL }}/{{ p.slug }}">{{ p.title }}</a>
                         <ul>
-                        {% for c in p.children %}
+                        {% for c in p.children|sort(attribute='page_order') %}
                             <li class="{% if c==page %}active{% endif %}"><a href="{{ SITEURL }}/{{ c.slug }}">{{ c.title }}</a></li>
                         {% endfor %}
                         </ul>
